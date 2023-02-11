@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", function(){
             previousScreen.textContent = '';
             if(previousValue.length <= 5){
             currentScreen.textContent = previousValue;
-            } else{
+            } 
+            else{
                 currentScreen.textContent = previousValue.slice(0.5) + '...';
             }
         }    
