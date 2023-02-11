@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let decimal = document.querySelector('.decimal');
 
     let numbers = document.querySelectorAll('.number');
-    let operator = document.querySelectorAll('.operator');
+    let operators = document.querySelectorAll('.operator');
 
     let previousScreen = document.querySelector('.previous');
     let currentScreen = document.querySelector('.current');
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
         currentScreen.textContent = currentValue;
     }))
 
-    operator.forEach((op) => op.addEventListener('click', function(e){
+    operators.forEach((op) => op.addEventListener('click', function(e){
         handleOperator(e.target.textContent)
         previousScreen.textContent = previousValue + " " + operator;
         currentScreen.textContent = currentValue;
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(){
             calculate()
             previousScreen.textContent = '';
             if(previousValue.length <= 5){
-            currentScreen.textContent =previousValue;
+            currentScreen.textContent = previousValue;
             } else{
                 currentScreen.textContent = previousValue.slice(0.5) + '...';
             }
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 })
 
-function handleNumber(num){
+function handleNumber(num){ 
     if(currentValue.length <= 5){
     currentValue += num;
 }}
@@ -64,7 +64,7 @@ function handleOperator(op){
 
 function calculate(){
     previousValue = Number(previousValue);
-    currentValue = Number(previousValue);
+    currentValue = Number(currentValue);
 
     if(operator === "+"){
         previousValue += currentValue;
@@ -72,7 +72,7 @@ function calculate(){
     else if(operator === "-"){
         previousValue -= currentValue;
     }
-    else if(operator === "X"){
+    else if(operator === "x"){
         previousValue *= currentValue;
     }
     else {
